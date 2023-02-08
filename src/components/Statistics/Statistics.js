@@ -7,7 +7,7 @@ function generateColor() {
 export function Statistics({ title, stats }) {
   return (
     <Card>
-      <CardName>{title}</CardName>
+      {title && (<CardName>{title}</CardName>)}
       <List>
         {stats.map(stat => (
           <Item
@@ -26,5 +26,9 @@ export function Statistics({ title, stats }) {
 }
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array,
+  stats: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }),),
 };

@@ -1,36 +1,11 @@
-import PropTypes from "prop-types";
-import { Card, List, Item } from './FriendList.styled';
-export function FriendList({ friends }) {
+import { Card } from './FriendList.styled';
+import { FriendListItem } from '../FriendListItem/FriendListItem';
+import friends from 'data/friends.json';
+
+export function FriendList() {
   return (
     <Card>
-      <List>
-        {friends.map(friend => (
-          <Item key={friend.id}>
-            <span
-              style={
-                friend.isOnline
-                  ? {
-                      width: '10px',
-                      height: '10px',
-                      backgroundColor: 'green',
-                      borderRadius: '50%',
-                    }
-                  : {
-                      width: '10px',
-                      height: '10px',
-                      backgroundColor: 'red',
-                      borderRadius: '50%',
-                    }
-              }
-            ></span>
-            <img src={friend.avatar} alt="User avatar" width="48" />
-            <p>{friend.name}</p>
-          </Item>
-        ))}
-      </List>
+      <FriendListItem friends={friends} />
     </Card>
   );
 }
-FriendList.propTypes = {
-  transactions: PropTypes.array,
-};
