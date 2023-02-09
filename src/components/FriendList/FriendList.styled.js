@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
-export const Card = styled.div`
+export const Card = styled.ul`
   display: flex;
+  justify-content: space-between;
   padding: 15px;
   width: ${({ theme }) => theme.spacing(100)};
   overflow: hidden;
@@ -11,6 +12,3 @@ export const Card = styled.div`
   border-radius: ${({ theme }) => theme.spacing(4)};
   margin-bottom: 20px;
 `;
-
-
-
